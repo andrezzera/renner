@@ -14,3 +14,8 @@ a {
 * {
   box-sizing: border-box;
 }
+
+hr {
+  border-top: 1px solid #F2F2F2;
+  border-bottom: none;
+}
