@@ -1,0 +1,8 @@
+.section-title {
+  border-left: 6px solid #000;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 30px;
+  padding-left: 13px;
+  text-transform: uppercase;
+}

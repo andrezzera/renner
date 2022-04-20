@@ -1,0 +1,21 @@
+.price {
+  display: flex;
+  flex-direction: column;
+  margin-right: 15px;
+  padding-right: 15px;
+  border-right: 1px solid #f2f2f2;
+}
+
+.price__full {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 30px;
+  color: #000000;
+}
+
+.price__installments {
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 15px;
+  color: #000000;
+}

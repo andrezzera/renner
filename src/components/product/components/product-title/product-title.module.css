@@ -1,0 +1,17 @@
+.title {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+  color: #393939;
+  text-transform: uppercase;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+  border-bottom: 1px solid #f2f2f2;
+
+}
+
+a.title:hover {
+  text-decoration: underline;
+}

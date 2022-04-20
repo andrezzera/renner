@@ -1,0 +1,25 @@
+.cart-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-item__image {
+  object-fit: cover;
+}
+
+.cart-item__info {
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px;
+  flex: 1;
+}
+
+.cart-item__info > span {
+  font-size: 14px;
+}
+
+.cart-item__info > b {
+  font-size: 14px;
+}
