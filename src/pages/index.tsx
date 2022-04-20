@@ -1,15 +1,15 @@
+import React from 'react'
 import { Banner, SectionTitle } from '@/components'
 import { Product } from '@/components/product/product'
 import { Product as IProduct } from '@/types/product.types'
-import axios from 'axios'
 import type { NextPage } from 'next'
-import styles from "./index.module.css"
-import Slider from "react-slick";
+import styles from './index.module.css'
+import Slider from 'react-slick'
 import Head from 'next/head'
 import { productService } from '@/services/product.service'
 
 interface HomeProps {
-  products: Array<IProduct>
+  products: Array<IProduct>;
 }
 
 const Home: NextPage<HomeProps> = ({ products }: HomeProps) => {
@@ -24,7 +24,7 @@ const Home: NextPage<HomeProps> = ({ products }: HomeProps) => {
         breakpoint: 1024,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToScroll: 3
         }
       },
       {
@@ -42,31 +42,32 @@ const Home: NextPage<HomeProps> = ({ products }: HomeProps) => {
         }
       }
     ]
-  };
+  }
 
   const getBestPrice = () => {
     return products.reduce((a, b) => {
-      if (b.price < a.price) a = b;
-      return a;
+      if (b.price < a.price) a = b
+      return a
     })
-  };
+  }
 
   const bestPriceProduct = getBestPrice()
-  
+
   return (
     <div>
       <Head>
         <title>Moda Feminina, Masculina, Infantil e Perfumes | Renner</title>
-        <meta name="description" content="Compre Online Roupas Femininas, Masculinas, Infantis, Perfumes, Sapatos e Acessórios com pagamento parcelado. Se quiser retire seu pedido na loja de sua preferência." />
+        <meta
+          name="description"
+          content="Compre Online Roupas Femininas, Masculinas, Infantis, Perfumes, Sapatos e Acessórios com pagamento parcelado. Se quiser retire seu pedido na loja de sua preferência."
+        />
       </Head>
       <Banner product={bestPriceProduct} />
       <SectionTitle>Produtos</SectionTitle>
-      <div className={styles["carousel-container"]}>
-        <Slider
-          {...sliderSettings}
-        >
-          {products.map(product => (
-            <div className={styles["product-wrapper"]} key={product.id} >
+      <div className={styles['carousel-container']}>
+        <Slider {...sliderSettings}>
+          {products.map((product) => (
+            <div className={styles['product-wrapper']} key={product.id}>
               <Product product={product} isList />
             </div>
           ))}
@@ -78,9 +79,7 @@ const Home: NextPage<HomeProps> = ({ products }: HomeProps) => {
 
 export default Home
 
-export async function getServerSideProps() {
+export async function getServerSideProps () {
   const products = await productService.getAll()
   return { props: { products } }
 }
-
-

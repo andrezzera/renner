@@ -30,7 +30,7 @@
 @media (min-width: 700px) {
   .image-container.image-container--pdp {
     max-width: 40%;
-  } 
+  }
   .product.product--pdp {
     flex-direction: row;
   }

@@ -1,15 +1,11 @@
-import { useCart } from '@/hooks';
-import React, { useState } from 'react';
-import styles from "./cart.module.css";
-import { CartEmpty, CartButton, CartItem } from './components';
-
+import { useCart } from '@/hooks'
+import React, { useState } from 'react'
+import styles from './cart.module.css'
+import { CartEmpty, CartButton, CartItem } from './components'
 
 export const Cart: React.FC = () => {
   const [cartVisible, setCartVisible] = useState(false)
-  const {
-    cart,
-    getAmountOfProductsInCart
-  } = useCart()
+  const { cart, getAmountOfProductsInCart } = useCart()
 
   const toggleCart = () => {
     setCartVisible(!cartVisible)
@@ -18,8 +14,8 @@ export const Cart: React.FC = () => {
   const renderCartItems = () => {
     const amountOfProductsInCart = getAmountOfProductsInCart()
 
-    if(amountOfProductsInCart) {
-      return cart.map(item => (
+    if (amountOfProductsInCart) {
+      return cart.map((item) => (
         <li key={item.product.id}>
           <CartItem product={item.product} />
         </li>
@@ -33,23 +29,21 @@ export const Cart: React.FC = () => {
     <>
       <CartButton toggleCart={toggleCart} />
       {cartVisible && (
-        <div className={styles["cart-container"]}>
+        <div className={styles['cart-container']}>
           <div
-            className={styles["cart-container__backdrop"]}
+            className={styles['cart-container__backdrop']}
             onClick={toggleCart}
           />
           <div className={styles.cart}>
             <div className={styles.cart__container}>
-            <div className={styles.cart__container__arrow}/>
+              <div className={styles.cart__container__arrow} />
               <div className={styles.cart__container__content}>
-                <ul>
-                  {renderCartItems()}
-                </ul>
+                <ul>{renderCartItems()}</ul>
               </div>
             </div>
           </div>
         </div>
       )}
     </>
-  );
+  )
 }
