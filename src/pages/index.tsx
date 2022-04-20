@@ -6,6 +6,7 @@ import type { NextPage } from 'next'
 import styles from "./index.module.css"
 import Slider from "react-slick";
 import Head from 'next/head'
+import { productService } from '@/services/product.service'
 
 interface HomeProps {
   products: Array<IProduct>
@@ -78,8 +79,8 @@ const Home: NextPage<HomeProps> = ({ products }: HomeProps) => {
 export default Home
 
 export async function getServerSideProps() {
-  const response = await axios.get<Array<IProduct>>("http://localhost:3000/api/products")
-  return { props: { products: response.data } }
+  const products = await productService.getAll()
+  return { props: { products } }
 }
 
 
